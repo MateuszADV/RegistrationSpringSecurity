@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Rgistration</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+
+    <div class="jumbotron">
+        <h1 style="text-align: center;">REJESTRACJA</h1>
+
+            <form th:action="@{/user/add}" method="post" th:object="${userForm}">
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td><a><input class="input" type="text" th:field="*{firstName}" placeholder="First Name"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><a><input class="input" type="text" th:field="*{lastName}" placeholder="Last Name"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><a><input class="input" type="password" th:field="*{password}" placeholder="Password"></a></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><a><input class="input" type="text" th:field="*{email}" placeholder="email"></a></td>
+                    </tr>
+
+
+                </table>
+
+                <p> <input type="submit" value="Dodaj"></p>
+            </form>
+
+
+    </div>
+</div>
+</body>
+</html>
