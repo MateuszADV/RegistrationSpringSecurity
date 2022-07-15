@@ -11,4 +11,9 @@ public class HomeControler {
         System.out.println("++++++++++++++++++++++++++++NAPIS TESTOWY++++++++++++++++++++++++++++++++++");
         return "home/index";
     }
+
+    @GetMapping("/about")
+    public String getAbout(){
+        return "home/about";
+    }
 }
