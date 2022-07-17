@@ -47,4 +47,15 @@ public class HomeControler {
 
         return "redirect:/";
     }
+
+    @GetMapping("/login")
+    public String getLogin(){
+        return "login";
+    }
+
+    @GetMapping("/error")
+    public String getError(){
+        return "error";
+    }
+
 }

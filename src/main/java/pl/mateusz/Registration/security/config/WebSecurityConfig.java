@@ -27,11 +27,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/v*/registration/**")
                 .permitAll()
-                .antMatchers("/", "/about", "/registration", "/user/add")
+                .antMatchers("/", "/about", "/user/add")
+                .permitAll()
+                .antMatchers("/login", "/registration", "/error")
                 .permitAll()
                 .anyRequest()
                 .authenticated().and()
-                .formLogin().and()
+                .formLogin().loginPage("/login").and()
+                .exceptionHandling().accessDeniedPage("/error").and()
                 .logout();
     }
 
