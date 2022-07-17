@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.mateusz.Registration.controllers.dto.UserRegistration;
+import pl.mateusz.Registration.registration.EmailValidator;
 import pl.mateusz.Registration.registration.RegistrationRequest;
 import pl.mateusz.Registration.registration.RegistrationService;
 
@@ -16,6 +17,7 @@ import pl.mateusz.Registration.registration.RegistrationService;
 public class HomeControler {
 
     private RegistrationService registrationService;
+    private final EmailValidator emailValidator;
 
     @GetMapping("/")
     public String getIndex(){
@@ -36,6 +38,10 @@ public class HomeControler {
 
     @PostMapping("/user/add")
     public String postCountry(@ModelAttribute("userForm") RegistrationRequest request, Model model){
+        System.out.println("--------------------********************************-----------------------------");
+//        System.out.println(registrationService.register(request));
+        Boolean isValidEmail = emailValidator.test(request.getEmail());
+        System.out.println(isValidEmail.toString());
         System.out.println("--------------------NAPIS TESTOWY--------------------------");
         System.out.println(request.toString());
 //        RegistrationRequest request = new RegistrationRequest(
@@ -43,9 +49,14 @@ public class HomeControler {
 //                userRegistration.getLastName(),
 //                userRegistration.getPassword(),
 //                userRegistration.getEmail());
-        registrationService.register(request);
+        if(!isValidEmail) {
+            registrationService.register(request);
+            return "redirect:/";
+        }
 
-        return "redirect:/";
+
+
+        return "home/registration";
     }
 
     @GetMapping("/login")
