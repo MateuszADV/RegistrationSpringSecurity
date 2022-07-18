@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorate="~{layouts/layout}">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      layout:decorate="~{layouts/layout}">
 <head>
     <title>Demo page</title>
 </head>
@@ -15,6 +16,27 @@ layout:decorate="~{layouts/layout}">
 <!--            <a class="btn btn-lg btn-primary" th:href="@{/country}" role="button">See people list</a>-->
         </p>
         <h3 th:text="${test}"></h3>
+        <div sec:authorize="isAuthenticated()">
+            1 - <span sec:authentication="principal.authorities">Roles</span><br>
+            2 - <span sec:authentication="principal.authorities">Bob</span><br>
+            3 - <span sec:authentication="principal.firstName">Firstname</span><br>
+            4 - <span sec:authentication="principal.email">Firstname</span><br>
+            5 - <span th:text ="${#authentication.getAuthorities()}"></span><br>
+            This content is only shown to authenticated users.
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            This content is only shown to administrators.
+        </div>
+        <div sec:authorize="hasRole('[USER]')">
+            This content is only shown to users.
+        </div>
+        <p>========================================================================================</p>
+        <p th:text="${#authentication.getAuthorities()[0].getAuthority()}"></p>
+        <div th:if = "${#authentication.getAuthorities()[0].getAuthority()} == 'USER'" >
+            <h1>test</h1><br>
+            <span th:text ="${#authentication.getAuthorities()}"></span>
+        </div>
+
     </div>
 </div>
 </body>
