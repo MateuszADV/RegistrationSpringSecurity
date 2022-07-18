@@ -44,18 +44,12 @@ public class HomeControler {
         System.out.println(isValidEmail.toString());
         System.out.println("--------------------NAPIS TESTOWY--------------------------");
         System.out.println(request.toString());
-//        RegistrationRequest request = new RegistrationRequest(
-//                userRegistration.getFirstName(),
-//                userRegistration.getLastName(),
-//                userRegistration.getPassword(),
-//                userRegistration.getEmail());
-        if(!isValidEmail) {
+        try {
             registrationService.register(request);
-            return "redirect:/";
+        }catch (Exception e) {
+            System.out.println(e.fillInStackTrace());
         }
-
-
-
+//        return "redirect:/";
         return "home/registration";
     }
 
