@@ -20,8 +20,9 @@ public class HomeControler {
     private final EmailValidator emailValidator;
 
     @GetMapping("/")
-    public String getIndex(){
+    public String getIndex(ModelMap modelMap){
         System.out.println("++++++++++++++++++++++++++++NAPIS TESTOWY++++++++++++++++++++++++++++++++++");
+        modelMap.addAttribute("test", "NAPIS TESTOWY");
         return "home/index";
     }
 
