@@ -15,7 +15,9 @@
                 <table>
                     <tr>
                         <td>First Name</td>
-                        <td><a><input class="input" type="text" th:field="*{firstName}" placeholder="First Name"></a></td>
+                        <td><input class="input" type="text" th:field="*{firstName}" placeholder="First Name"/></td>
+<!--                        <td th:if="${#fields.hasErrors('firsName')}" th:errors="*{firstName}">Name Error</td>-->
+                        <td  th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color: red">></td>
                     </tr>
                     <tr>
                         <td>Last Name</td>
@@ -28,6 +30,7 @@
                     <tr>
                         <td>Email</td>
                         <td><a><input class="input" type="text" th:field="*{email}" placeholder="email"></a></td>
+                        <td  th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red">></td>
                     </tr>
 
 

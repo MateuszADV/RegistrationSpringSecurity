@@ -52,7 +52,8 @@ public class AppUserService implements UserDetailsService {
             appUser
     );
 
-    confirmationTokenService.saveConfirmationToken(confirmationToken);
+    // ZAkomentowane zapisu tokena dla użytkownika
+//    confirmationTokenService.saveConfirmationToken(confirmationToken);
 
 //    TODO: Send Email
 
