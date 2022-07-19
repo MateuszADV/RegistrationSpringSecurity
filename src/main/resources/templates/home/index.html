@@ -24,10 +24,11 @@
             5 - <span th:text ="${#authentication.getAuthorities()}"></span><br>
             This content is only shown to authenticated users.
         </div>
-        <div sec:authorize="hasRole('ROLE_ADMIN')">
+<!--        <div sec:authorize="hasRole('ROLE_ADMIN')">-->
+        <div sec:authorize="hasAuthority('ADMIN')">
             This content is only shown to administrators.
         </div>
-        <div sec:authorize="hasRole('[USER]')">
+        <div sec:authorize="hasAuthority('USER')">
             This content is only shown to users.
         </div>
         <p>==================================</p>

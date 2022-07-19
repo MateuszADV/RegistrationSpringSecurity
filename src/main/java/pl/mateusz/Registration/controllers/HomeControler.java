@@ -34,10 +34,10 @@ public class HomeControler {
     public String getIndex(ModelMap modelMap){
         System.out.println("++++++++++++++++++++++++++++NAPIS TESTOWY++++++++++++++++++++++++++++++++++");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        System.out.println(userCheckLoged.UserCheckLoged().getName());
-//        System.out.println(userCheckLoged.UserCheckLoged().getAuthorities());
-//        System.out.println(userCheckLoged.UserCheckLoged().getCredentials());
-//        System.out.println(userCheckLoged.UserCheckLoged().getPrincipal().getClass().getCanonicalName());
+        System.out.println(userCheckLoged.UserCheckLoged().getName());
+        System.out.println(userCheckLoged.UserCheckLoged().getAuthorities());
+        System.out.println(userCheckLoged.UserCheckLoged().getCredentials());
+        System.out.println(userCheckLoged.UserCheckLoged().getPrincipal().getClass().getCanonicalName());
 
         modelMap.addAttribute("test", "NAPIS TESTOWY");
         return "home/index";
