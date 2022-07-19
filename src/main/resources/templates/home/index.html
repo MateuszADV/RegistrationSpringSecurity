@@ -30,11 +30,15 @@
         <div sec:authorize="hasRole('[USER]')">
             This content is only shown to users.
         </div>
-        <p>========================================================================================</p>
+        <p>==================================</p>
         <p th:text="${#authentication.getAuthorities()[0].getAuthority()}"></p>
         <div th:if = "${#authentication.getAuthorities()[0].getAuthority()} == 'USER'" >
             <h1>test</h1><br>
-            <span th:text ="${#authentication.getAuthorities()}"></span>
+            1 - <span th:text ="${#authentication.getAuthorities()}"></span><br>
+            2 - <span th:text ="${#authentication.getDetails()}"></span><br>
+            3 - <span th:text ="${#authentication.getPrincipal()}"></span><br>
+            4 - <span th:text ="${#authentication.authorities.size()}"></span><br>
+            5 - <span th:text ="${#authentication.toString()}"></span>
         </div>
 
     </div>
