@@ -33,6 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/about").hasAnyAuthority("ADMIN")
                 .antMatchers("/continent").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/country").permitAll()
                 .anyRequest()
                 .authenticated().and()
                 .formLogin().loginPage("/login").and()

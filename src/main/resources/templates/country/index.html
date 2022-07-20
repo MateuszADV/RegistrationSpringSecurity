@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Country</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+
+    <div class="jumbotron">
+        <h2 style="text-align: center">COUNTRY</h2>
+        <Block th:each="country : ${countries}">
+            <span th:text="${country.id} + '   |   '" >   |   </span>
+            <span th:text="${country.continent} + '   |   '">   |   </span>
+            <span th:text="${country.country_en} + '   |   '">   |   </span>
+            <span th:text="${country.country_pl} + '   |   '">   |   </span><br>
+        </Block>
+    </div>
+</div>
+</body>
+</html>
