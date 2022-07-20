@@ -25,14 +25,17 @@
             This content is only shown to authenticated users.
         </div>
 <!--        <div sec:authorize="hasRole('ROLE_ADMIN')">-->
+        <p>==================================</p>
         <div sec:authorize="hasAuthority('ADMIN')">
             This content is only shown to administrators.
+            <p th:text="${#authentication.getAuthorities()[0].getAuthority()}"></p>
         </div>
         <div sec:authorize="hasAuthority('USER')">
             This content is only shown to users.
+            <p th:text="${#authentication.getAuthorities()[0].getAuthority()}"></p>
         </div>
-        <p>==================================</p>
-        <p th:text="${#authentication.getAuthorities()[0].getAuthority()}"></p>
+
+
         <div th:if = "${#authentication.getAuthorities()[0].getAuthority()} == 'USER'" >
             <h1>test</h1><br>
             1 - <span th:text ="${#authentication.getAuthorities()}"></span><br>
