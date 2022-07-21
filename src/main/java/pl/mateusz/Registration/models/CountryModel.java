@@ -43,7 +43,7 @@ public class CountryModel {
     private String iso_code;
     @Column(name = "created_at")
     private Timestamp created_at;
-    @Column(name = "update_at")
+    @Column(name = "updated_at")
     private Timestamp updated_at;
     private Boolean exists;
     private String description;
