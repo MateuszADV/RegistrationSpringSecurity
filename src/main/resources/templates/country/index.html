@@ -10,12 +10,38 @@
 
     <div class="jumbotron">
         <h2 style="text-align: center">COUNTRY</h2>
-        <Block th:each="country : ${countries}">
-            <span th:text="${country.id} + '   |   '" >   |   </span>
-            <span th:text="${country.continent} + '   |   '">   |   </span>
-            <span th:text="${country.country_en} + '   |   '">   |   </span>
-            <span th:text="${country.country_pl} + '   |   '">   |   </span><br>
-        </Block>
+<!--        <Block th:each="country : ${countries}">-->
+<!--            <span th:text="${country.id} + '   |   '" >   |   </span>-->
+<!--            <span th:text="${country.continent} + '   |   '">   |   </span>-->
+<!--            <span th:text="${country.country_en} + '   |   '">   |   </span>-->
+<!--            <span th:text="${country.country_pl} + '   |   '">   |   </span><br>-->
+<!--        </Block>-->
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover table-sm">
+            <thead class="thead-dark">
+                <tr>
+                   <th>ID</th>
+                   <th>Continent</th>
+                   <th>Country EN</th>
+                   <th>Country PL</th>
+                   <th>Capital City</th>
+                   <th>Akcja</th>
+                </tr>
+            </thead>
+            <tbody>
+                <Block th:each="country : ${countries}">
+                    <tr>
+                        <td th:text="${country.id}" class="pt-1 pb-1"></td>
+                        <td th:text="${country.continent}" class="pt-1 pb-1"></td>
+                        <td th:text="${country.country_en}" class="pt-1 pb-1"></td>
+                        <td th:text="${country.country_pl}" class="pt-1 pb-1"></td>
+                        <td th:text="${country.capital_city}" class="pt-1 pb-1"></td>
+                        <td class="pt-1 pb-1">Show, Edit, Delete</td>
+                    </tr>
+                </Block>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>
