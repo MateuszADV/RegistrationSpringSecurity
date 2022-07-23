@@ -68,11 +68,11 @@ public class WebSecurityConfig  {
 //    }
 
 
-//    public void configure(WebSecurity web) throws Exception {
-//        web
-//                .ignoring()
-//                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**","/vendor/**","/fonts/**");
-//    }
+    public void configure(WebSecurity web) throws Exception {
+        web
+                .ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**","/vendor/**","/fonts/**");
+    }
 
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
