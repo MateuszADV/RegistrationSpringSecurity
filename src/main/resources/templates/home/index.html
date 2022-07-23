@@ -10,7 +10,11 @@
 <div layout:fragment="content" class="container">
 
     <div class="jumbotron">
-        <h1>TEST 2022-07-15</h1>
+        <h1>FORMAT DATA</h1>
+        <h1 th:text="${#dates.format(standardDate, 'yyyy-MM-dd HH:mm')}"></h1>
+        <p th:text="${#temporals.formatISO(localDateTime)}"></p>
+        <p th:text="${#temporals.formatISO(localDate)}"></p>
+        <p th:text="${#temporals.formatISO(timestamp)}"></p>
         <p>Allows to add people.</p>
         <p>
 <!--            <a class="btn btn-lg btn-primary" th:href="@{/country}" role="button">See people list</a>-->

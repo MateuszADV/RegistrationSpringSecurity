@@ -20,6 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Principal;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.zip.DataFormatException;
 
 @Controller
 @AllArgsConstructor
@@ -48,6 +53,13 @@ public class HomeControler {
         System.out.println("---------------------TEST START------------------------");
         System.out.println(request.toString());
         System.out.println(response.getLocale().toString());
+        System.out.println(LocalDateTime.now());
+
+        modelMap.addAttribute("standardDate", new Date());
+        modelMap.addAttribute("localDateTime", LocalDateTime.now());
+        modelMap.addAttribute("localDate", LocalDate.now());
+        modelMap.addAttribute("timestamp", Instant.now());
+
         System.out.println("---------------------TEST STOP------------------------");
         return "home/index";
     }
