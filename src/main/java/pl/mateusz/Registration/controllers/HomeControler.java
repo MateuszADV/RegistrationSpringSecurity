@@ -16,6 +16,8 @@ import pl.mateusz.Registration.registration.RegistrationRequest;
 import pl.mateusz.Registration.registration.RegistrationService;
 import pl.mateusz.Registration.security.config.UserCheckLoged;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Principal;
 
@@ -31,7 +33,9 @@ public class HomeControler {
 
 
     @GetMapping("/")
-    public String getIndex(ModelMap modelMap){
+    public String getIndex(ModelMap modelMap,
+                           HttpServletRequest request,
+                           HttpServletResponse response){
         System.out.println("++++++++++++++++++++++++++++NAPIS TESTOWY++++++++++++++++++++++++++++++++++");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         System.out.println(userCheckLoged.UserCheckLoged().getName());
@@ -40,6 +44,11 @@ public class HomeControler {
         System.out.println(userCheckLoged.UserCheckLoged().getPrincipal().getClass().getCanonicalName());
 
         modelMap.addAttribute("test", "NAPIS TESTOWY");
+
+        System.out.println("---------------------TEST START------------------------");
+        System.out.println(request.toString());
+        System.out.println(response.getLocale().toString());
+        System.out.println("---------------------TEST STOP------------------------");
         return "home/index";
     }
 
@@ -83,6 +92,12 @@ public class HomeControler {
     @GetMapping("/error")
     public String getError(){
         return "error";
+    }
+
+    @GetMapping("/test")
+    public String getTest(){
+        System.out.println("==============STRONA TESTOWA===================");
+        return "home/test";
     }
 
 }
