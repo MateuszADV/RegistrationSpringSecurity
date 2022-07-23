@@ -30,7 +30,7 @@ public class WebSecurityConfig  {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/v*/registration/**")
-                .anonymous().antMatchers("/", "/registration")
+                .anonymous().antMatchers("/", "/registration", "/user/add")
                 .permitAll()
                 .antMatchers("/about").hasAnyAuthority("ADMIN")
                 .antMatchers("/continent").hasAnyAuthority("USER", "ADMIN")
